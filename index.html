@@ -18,28 +18,29 @@
         log(bookmarklet);
         $("#putLocation").innerHTML += `<a href="${bookmarklet}">${text}</a><br>`;
       }
-
     </script>
 
     <style>
-.main-pane{
-  display: flex;
-  flex-wrap: wrap;
-}
+  .main-pane{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .left-pane, .right-pane{
     width: calc(50% - 10px);
     margin: 5px;
   }
-  #putLocation{
-    border: solid 1px black;
-  }
+
   section{
     background-color: rgba(0,0,255, 0.25);
     padding: 5px;
+    margin-bottom: 5px;
     border-radius: 5px;
   }
+
   .put-location{
     background-color: white;
+    border: solid 1px black;
   }
     </style>
 
@@ -62,7 +63,7 @@
       </div>
       <div class="right-pane">
         ログ出力<br>
-        <textarea id="log" rows="50" cols="80"></textarea>
+        <textarea id="log" rows="40" cols="80"></textarea>
       </div>
     </div>
   </body>
