@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML・JS・CSS練習場</title>
+  <script>
+    const $ = (s) => document.querySelector(s);
+
+    function log(msg) {
+      $("#log").innerHTML += `${msg}\n`;
+    }
+
+    function createBookmarklet(text) {
+      const script = `console.log('${text}');`;
+      const bookmarklet = `javascript:(function(){${script}})();`
+      log(bookmarklet);
+      $("#putLocation").innerHTML += `<a href="${bookmarklet}">${text}</a><br>`;
+    }
+
+  </script>
+
+  <style>
+  .main-pane{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .left-pane, .right-pane{
+    width: calc(50% - 10px);
+    margin: 5px;
+  }
+  #putLocation{
+    border: solid 1px black;
+  }
+  section{
+    background-color: rgba(0,0,255, 0.25);
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .put-location{
+    background-color: white;
+  }
+  </style>
+
+</head>
+<body>
+  <header>
+    参考：<br>
+    <a href="http://www.eonet.ne.jp/~wdf/software/bookmarklet_creator.html">ブックマークレット作成</a>
+  </header>
+  <hr>
+  <div class="main-pane">
+    <div class="left-pane">
+      <section>
+        ブックマークレット：
+        <input id="input01" type="text" autofocus />
+        <input type="button" value="適用" onclick="createBookmarklet($('#input01').value);"/>
+        <div id="putLocation" class="put-location">ここにブックマークレットが追加されます。<br></div>
+      </section>
+    </div>
+    <div class="right-pane">
+      ログ出力<br>
+      <textarea id="log" rows="50" cols="80"></textarea>
+    </div>
+  </div>
+</body>
+</html>
